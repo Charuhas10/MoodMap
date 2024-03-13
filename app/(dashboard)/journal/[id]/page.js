@@ -21,7 +21,7 @@ const getEntry = async (id) => {
 const EntryPage = async ({ params }) => {
   const entry = await getEntry(params.id);
   return (
-    <div style={{ width: "100%", height: "100%" }}>
+    <div className=" h-full w-full">
       <Editor entry={entry} />
     </div>
   );

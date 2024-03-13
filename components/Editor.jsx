@@ -11,6 +11,7 @@ const Editor = ({ entry }) => {
   const [analysis, setAnalysis] = useState(entry.analysis);
 
   const { mood, summary, color, subject, negative } = analysis;
+
   const analysisData = [
     { name: "Summary", value: summary },
     { name: "Subject", value: subject },
@@ -27,29 +28,30 @@ const Editor = ({ entry }) => {
       setIsLoading(false);
     },
   });
+
   return (
-    <div className={styles.editorContainer}>
-      <div style={{ gridColumn: "span 2 / span 2" }}>
+    <div className=" w-full h-full grid grid-cols-3">
+      <div className=" col-span-2">
         {isLoading && <div>loading...</div>}
         <textarea
-          className={styles.editorArea}
+          className=" w-full h-full p-8 text-xl outline-none"
           value={value}
           onChange={(e) => setValue(e.target.value)}
         />
       </div>
 
-      <div className={styles.analysisContainer}>
-        <div
-          className={styles.analysisHeader}
-          style={{ backgroundColor: color }}
-        >
-          <h2 className={styles.analysisTitle}>Analysis</h2>
+      <div className=" border-l border-black/10">
+        <div className=" py-10 px-6" style={{ backgroundColor: color }}>
+          <h2 className=" text-2xl">Analysis</h2>
         </div>
         <div>
           <ul>
             {analysisData.map((item) => (
-              <li key={item.name} className={styles.analysisItem}>
-                <span className={styles.itemLabel}>{item.name}</span>
+              <li
+                key={item.name}
+                className=" py-4 px-2 flex items-center justify-center botder-t border-b border-black/10"
+              >
+                <span className=" text-lg font-semibold">{item.name}</span>
                 <span>{item.value}</span>
               </li>
             ))}
