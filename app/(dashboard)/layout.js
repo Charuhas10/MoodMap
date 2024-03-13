@@ -10,7 +10,7 @@ const links = [
 
 const DashboardLayout = ({ children }) => {
   return (
-    <div className=" relative w-screen h-screen">
+    <div className=" bg-[#CBF1F5] relative w-screen h-screen">
       <aside className=" absolute top-0 left-0 bottom-0 h-full w-[200px] border-r border-color">
         <div>MOODMAP</div>
         <ul>
@@ -27,7 +27,7 @@ const DashboardLayout = ({ children }) => {
             <UserButton />
           </div>
         </header>
-        <div className={styles.children}>{children}</div>
+        <div className=" h-[calc(100vh-60px)] ">{children}</div>
       </div>
     </div>
   );

@@ -1,4 +1,3 @@
-import styles from "./journal.module.css";
 import EntryCard from "@/components/EntryCard";
 import Question from "@/components/Question";
 import NewEntryCard from "@/components/NewEntryCard";
@@ -23,16 +22,16 @@ const getEntries = async () => {
 const JournalPage = async () => {
   const entries = await getEntries();
   return (
-    <div className={styles.container}>
-      <h2 className={styles.header}>Mood Entries</h2>
-      <div className={styles.questionContainer}>
+    <div className=" p-10 bg-[#E3FDFD] h-full">
+      <h2 className=" text-6xl mb-8">MOOD ENTRIES</h2>
+      <div className=" my-8">
         <Question />
       </div>
-      <div className={styles.cardContainer}>
+      <div className=" grid gap-4 grid-cols-3">
         <NewEntryCard />
         {entries.map((entry) => (
           <Link href={`/journal/${entry.id}`} key={entry.id}>
-            <EntryCard key={entry.id} entry={entry} />
+            <EntryCard entry={entry} />
           </Link>
         ))}
       </div>
@@ -41,3 +40,5 @@ const JournalPage = async () => {
 };
 
 export default JournalPage;
+
+// key={entry.id} 

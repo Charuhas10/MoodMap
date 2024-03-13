@@ -5,7 +5,7 @@ export default async function Home() {
   const { userId } = await auth();
 
   return (
-    <div className=" w-screen h-screen flex justify-center items-center text-[#71C9CE] bg-[#E3FDFD]">
+    <div className=" w-screen h-screen flex justify-center items-center text-[#71C9CE] bg-[#222831]">
       <div className=" w-full max-w-[600px] mx-auto">
         <h1 className="text-8xl font-bold">MoodMap</h1>
         <p className="text-2xl my-6 text-[#71C9CE]/60">

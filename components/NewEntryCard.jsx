@@ -16,9 +16,9 @@ const NewEntryCard = () => {
   };
 
   return (
-    <div className={styles.newCardContainer}>
-      <div className={styles.newCardClick} onClick={handleOnClick}>
-        <span className={styles.newCardSpan}>New Entry</span>
+    <div className=" cursor-pointer overflow-hidden rounded-lg bg-white shadow">
+      <div className="px-4 py-5 sm:p-6" onClick={handleOnClick}>
+        <span className="text-3xl">New Entry</span>
       </div>
     </div>
   );
