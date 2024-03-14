@@ -3,7 +3,6 @@
 import { updateEntry } from "@/utils/api";
 import { useState } from "react";
 import { useAutosave } from "react-autosave";
-import styles from "./component.module.css";
 
 const Editor = ({ entry }) => {
   const [value, setValue] = useState(entry.content);
@@ -31,6 +30,7 @@ const Editor = ({ entry }) => {
 
   return (
     <div className=" w-full h-full grid grid-cols-3">
+      {/* Text area */}
       <div className=" col-span-2">
         {isLoading && <div>loading...</div>}
         <textarea
@@ -40,6 +40,7 @@ const Editor = ({ entry }) => {
         />
       </div>
 
+      {/* analysis side bar */}
       <div className=" border-l border-black/10">
         <div className=" py-10 px-6" style={{ backgroundColor: color }}>
           <h2 className=" text-2xl">Analysis</h2>

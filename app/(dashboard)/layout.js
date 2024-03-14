@@ -1,6 +1,5 @@
 import { UserButton } from "@clerk/nextjs";
 import Link from "next/link";
-import styles from "./dashboard.module.css";
 
 const links = [
   { href: "/", label: "Home" },
@@ -12,10 +11,10 @@ const DashboardLayout = ({ children }) => {
   return (
     <div className=" bg-[#CBF1F5] relative w-screen h-screen">
       <aside className=" absolute top-0 left-0 bottom-0 h-full w-[200px] border-r border-color">
-        <div>MOODMAP</div>
+        <div className="text-2xl flex justify-center items-center my-4">MOODMAP</div>
         <ul>
           {links.map((link) => (
-            <li key={link.href} className=" py-6 px-2">
+            <li key={link.href} className=" py-6 px-2 text-xl">
               <Link href={link.href}>{link.label}</Link>
             </li>
           ))}

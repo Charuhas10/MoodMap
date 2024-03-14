@@ -10,8 +10,9 @@
   },
   "dependencies": {
     "@clerk/nextjs": "^4.29.9",
+    "@langchain/openai": "^0.0.20",
     "@prisma/client": "^5.10.2",
-    "langchain": "^0.1.26",
+    "langchain": "^0.1.27",
     "next": "14.1.3",
     "react": "^18",
     "react-autosave": "^0.4.4",

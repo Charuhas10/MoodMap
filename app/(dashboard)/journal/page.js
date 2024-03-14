@@ -4,7 +4,6 @@ import NewEntryCard from "@/components/NewEntryCard";
 import Link from "next/link";
 import { getUserByClerkId } from "@/utils/auth";
 import { prisma } from "@/utils/db";
-import { analyse } from "@/utils/ai";
 
 const getEntries = async () => {
   const user = await getUserByClerkId();
@@ -41,4 +40,4 @@ const JournalPage = async () => {
 
 export default JournalPage;
 
-// key={entry.id} 
+// key={entry.id}

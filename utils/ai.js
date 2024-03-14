@@ -1,10 +1,11 @@
-import { OpenAI } from "langchain/llms/openai";
+// import { OpenAI } from "langchain/llms/openai";
+import { OpenAI } from "@langchain/openai";
 import { StructuredOutputParser } from "langchain/output_parsers";
 import z from "zod";
-import { PromptTemplate } from "langchain/prompts";
+import { PromptTemplate } from "@langchain/core/prompts";
 import { Document } from "langchain/document";
 import { loadQARefineChain } from "langchain/chains";
-import { OpenAIEmbeddings } from "langchain/embeddings/openai";
+import { OpenAIEmbeddings } from "@langchain/openai";
 import { MemoryVectorStore } from "langchain/vectorstores/memory";
 
 const parser = StructuredOutputParser.fromZodSchema(
@@ -22,7 +23,7 @@ const parser = StructuredOutputParser.fromZodSchema(
     negative: z
       .boolean()
       .describe(
-        "Is the journal entry negative? (i.e. does it contain a negative emotions/sentiment?)"
+        "Is the journal entry negative? (i.e. does it contain a negative emotions/sentiment?)."
       ),
     color: z
       .string()
@@ -52,7 +53,7 @@ const getPrompt = async (content) => {
 export const analyse = async (content) => {
   const input = await getPrompt(content);
   const model = new OpenAI({ temperature: 0, modelName: "gpt-3.5-turbo" });
-  const result = await model.call(input);
+  const result = await model.invoke(input);
   console.log(result);
 
   try {
@@ -76,7 +77,7 @@ export const qa = async (question, entries) => {
   const store = await MemoryVectorStore.fromDocuments(docs, embeddings);
   const relevantDocs = await store.similaritySearch(question);
 
-  const res = await chain.call({
+  const res = await chain.invoke({
     input_documents: relevantDocs,
     question,
   });
