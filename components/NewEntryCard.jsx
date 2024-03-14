@@ -2,7 +2,6 @@
 
 import { createNewEntry } from "@/utils/api";
 import { useRouter } from "next/navigation";
-import styles from "./component.module.css";
 
 const NewEntryCard = () => {
   const router = useRouter();

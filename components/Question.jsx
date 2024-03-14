@@ -2,7 +2,6 @@
 
 import { askQuestion } from "@/utils/api";
 import { useState } from "react";
-import styles from "./component.module.css";
 
 const Question = () => {
   const [value, setValue] = useState("");
@@ -10,7 +9,6 @@ const Question = () => {
   const [response, setResponse] = useState();
 
   const onChange = (e) => {
-    //do things here
     setValue(e.target.value);
   };
 
@@ -32,12 +30,12 @@ const Question = () => {
           value={value}
           type="text"
           placeholder="Present your query"
-          className={styles.questionInput}
+          className=" border border-black/20 py-2 px-4 text-lg rounded-lg"
         />
         <button
           disabled={loading}
           type="submit"
-          className={styles.questionButton}
+          className=" bg-[#ffd1d1] px-4 py-2 rounded-lg text-lg"
         >
           Ask
         </button>

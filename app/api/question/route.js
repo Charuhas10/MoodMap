@@ -17,6 +17,7 @@ export const POST = async (request) => {
       createdAt: true,
     },
   });
+
   const answer = await qa(question, entries);
 
   return NextResponse.json({ data: answer });
