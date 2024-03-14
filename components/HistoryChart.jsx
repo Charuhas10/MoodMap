@@ -1,7 +1,7 @@
 "use client";
 
 import { ResponsiveContainer, Line, Tooltip, XAxis, LineChart } from "recharts";
-import styles from "./component.module.css";
+
 const CustomTooltip = ({ payload, label, active }) => {
   const dateLabel = new Date(label).toLocaleString("en-US", {
     timeZone: "Asia/Kolkata",
@@ -16,13 +16,13 @@ const CustomTooltip = ({ payload, label, active }) => {
   if (active) {
     const analysis = payload[0].payload;
     return (
-      <div className={styles.custom - tooltip - container}>
+      <div className="p-8 custom-tooltip bg-white/5 shadow-md border border-black/10 rounded-lg backdrop-blur-md relative">
         <div
-          className={styles.color - indicator}
+          className="absolute left-2 top-2 w-2 h-2 rounded-full"
           style={{ background: analysis.color }}
         ></div>
-        <p className={styles.label - text}>{dateLabel}</p>
-        <p className={styles.intro - text}>{analysis.mood}</p>
+        <p className="label text-sm text-black/30">{dateLabel}</p>
+        <p className="intro text-xl uppercase">{analysis.mood}</p>
       </div>
     );
   }
